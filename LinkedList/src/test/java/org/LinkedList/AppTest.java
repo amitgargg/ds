@@ -1,4 +1,4 @@
-package DataStructure.DataStructure;
+package org.LinkedList;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
