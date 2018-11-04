@@ -1,5 +1,7 @@
 package singlyLinkedList;
 
+import java.util.NoSuchElementException;
+
 public class SinglyLinkedList<T> {
 
 	Node<T> firstNode;
@@ -30,10 +32,9 @@ public class SinglyLinkedList<T> {
 				tempNode = tempNode.nextNode;
 			}
 			if (tempNode == null) {
-				throw new RuntimeException();
+				throw new IndexOutOfBoundsException();
 			}
 		}
-
 		if (index == 0) {
 			insertFirst(data);
 		} else {
@@ -41,9 +42,7 @@ public class SinglyLinkedList<T> {
 			Node<T> newNode = new Node<T>(data);
 			newNode.setNextNode(nextNode);
 			tempNode.setNextNode(newNode);
-
 		}
-
 	}
 
 	public void insertLast(T data) {
@@ -56,8 +55,20 @@ public class SinglyLinkedList<T> {
 			lastNode = newNode;
 		}
 	}
+	
+	public T getFirst() {
+		if(firstNode == null) {
+			new NoSuchElementException();
+		}
+		T data = firstNode.getData();
+		firstNode = firstNode.nextNode;
+		if(firstNode == null) {       
+			lastNode = null;
+		}
+		return data;
+	}
 
-	public void printAll() {
+	public void printAll() {	
 		Node<T> tempNode = firstNode;
 		while (tempNode != null) {
 			System.out.print(tempNode.getData() + ",");
@@ -69,16 +80,21 @@ public class SinglyLinkedList<T> {
 
 	public static void main(String[] args) {
 		SinglyLinkedList<String> linkedList = new SinglyLinkedList<String>();
-		linkedList.insertAtIndex("String1", 0);
-		linkedList.printAll();
-		linkedList.insertAtIndex("String2", 1);
-		linkedList.printAll();
-		linkedList.insertAtIndex("String3", 0);
-		linkedList.printAll();
-		linkedList.insertAtIndex("String4", 1);
-		linkedList.printAll();
-		linkedList.insertAtIndex("String5", 3);
-		linkedList.printAll();
+		linkedList.insertFirst("String1");
+		linkedList.insertFirst("String2");
+		System.out.println(linkedList.getFirst());
+		System.out.println(linkedList.getFirst());
+	}
+	
+	@Override
+	public String toString() {
+		StringBuffer data = new StringBuffer();
+		Node<T> tempNode = firstNode;
+		while (tempNode != null) {
+			data.append(tempNode.getData() + ",");
+			tempNode = tempNode.nextNode;
+		}
+		return data.toString();
 	}
 
 }
