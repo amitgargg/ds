@@ -26,5 +26,6 @@
   	<module>recursion</module>
   	<module>stack</module>
     <module>LinkedList</module>
+    <module>DailyCoding</module>
   </modules>
 </project>
