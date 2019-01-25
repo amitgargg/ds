@@ -10,6 +10,63 @@ public class SinglyLinkedList<T> {
 	public SinglyLinkedList() {
 
 	}
+	
+	public T deleteFirst() {
+		if(firstNode == null) {
+			new NoSuchElementException();
+		}
+		T data = firstNode.getData();
+		firstNode = firstNode.nextNode;
+		if(firstNode == null) {       
+			lastNode = null;
+		}
+		return data;
+	}
+	
+	public T deleteLast() {
+		if (lastNode == null) {
+			throw new NoSuchElementException();
+		}
+		Node<T> secondLastNode = null;
+		Node<T> tempNode = firstNode;
+		while (tempNode.nextNode != null) {
+			secondLastNode = tempNode;
+			tempNode = secondLastNode.nextNode;
+		}
+		T data = lastNode.data;
+		if(secondLastNode == null) {
+			firstNode = null;
+		} else {
+			secondLastNode.nextNode = null;
+		}
+		lastNode = secondLastNode;
+		return data;
+	}
+
+	public T deleteAtIndex(int index) {
+		Node<T> tempNode = null;
+		for (int i = 0; i < index; i++) {
+			if (tempNode == null) {
+				tempNode = firstNode;
+			} else {
+				tempNode = tempNode.nextNode;
+			}
+
+			if (tempNode == null || tempNode.nextNode == null) {
+				throw new IndexOutOfBoundsException();
+			}
+		}
+		T data = null;
+		if (index == 0) {
+			data = deleteFirst();
+		} else {
+			Node<T> nodeForDelete = tempNode.nextNode;
+			Node<T> nextNode = nodeForDelete.nextNode;
+			tempNode.nextNode = nextNode;
+			data = nodeForDelete.data;
+		}
+		return data;
+	}
 
 	public void insertFirst(T data) {
 		Node<T> newNode = new Node<T>(data);
@@ -57,15 +114,10 @@ public class SinglyLinkedList<T> {
 	}
 	
 	public T getFirst() {
-		if(firstNode == null) {
+		if (firstNode == null) {
 			new NoSuchElementException();
 		}
-		T data = firstNode.getData();
-		firstNode = firstNode.nextNode;
-		if(firstNode == null) {       
-			lastNode = null;
-		}
-		return data;
+		return firstNode.getData();
 	}
 
 	public void printAll() {	
@@ -82,8 +134,9 @@ public class SinglyLinkedList<T> {
 		SinglyLinkedList<String> linkedList = new SinglyLinkedList<String>();
 		linkedList.insertFirst("String1");
 		linkedList.insertFirst("String2");
-		System.out.println(linkedList.getFirst());
-		System.out.println(linkedList.getFirst());
+		System.out.println(linkedList);
+		System.out.println(linkedList.deleteAtIndex(1));
+		System.out.println(linkedList);
 	}
 	
 	@Override
