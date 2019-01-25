@@ -7,9 +7,7 @@
     <artifactId>DataStructure</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>DataStructure</groupId>
   <artifactId>GreedyMethod</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>GreedyMethod</name>
   <url>http://maven.apache.org</url>
   <properties>

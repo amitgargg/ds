@@ -30,5 +30,6 @@
 		<module>LinkedList</module>
 		<module>DailyCoding</module>
     	<module>GreedyMethod</module>
+    	<module>Searching</module>
   </modules>
 </project>
