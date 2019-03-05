@@ -31,5 +31,6 @@
 		<module>DailyCoding</module>
     	<module>GreedyMethod</module>
     	<module>Searching</module>
-  </modules>
+    	<module>tree</module>
+	</modules>
 </project>
