@@ -30,7 +30,6 @@ public class FractionKnapsackProblem {
 			} else {
 				double currentProfit = perKgProfit.getPerKgProfit() * currentBagSize;
 				maximumProfit = maximumProfit + currentProfit;
-				currentBagSize = 0;
 				break;
 			}
 		}
