@@ -7,7 +7,7 @@ import org.tree.binarytree.BinaryTree;
 import org.tree.binarytree.BinaryTreeNode;
 
 /**
- * Problem-1 Give an algorithm for finding maximum element in binary tree.
+ * Problem-2 Give an algorithm for finding maximum element in binary tree without recursion
  **/
 
 public class FindMaximumElementFromBinaryTreeUsingQueue {
