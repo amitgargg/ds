@@ -5,6 +5,13 @@ public class BinaryTreeNode<T> {
 	private T data;
 	private BinaryTreeNode<T> leftNode;
 	private BinaryTreeNode<T> rightNode;
+	
+	public BinaryTreeNode() {
+	}
+
+	public BinaryTreeNode(T data) {
+		this.data = data;
+	}
 
 	public T getData() {
 		return data;

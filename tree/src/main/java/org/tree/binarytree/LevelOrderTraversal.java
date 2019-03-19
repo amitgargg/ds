@@ -12,7 +12,7 @@ public class LevelOrderTraversal {
 
 	}
 
-	private static void levelOrderTraversal(BinaryTreeNode<Integer> root) {
+	public static void levelOrderTraversal(BinaryTreeNode<Integer> root) {
 		Queue<BinaryTreeNode<Integer>> queue = new LinkedList<>();
 		queue.add(root);
 		while (!queue.isEmpty()) {
