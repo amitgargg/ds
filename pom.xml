@@ -32,5 +32,6 @@
     	<module>GreedyMethod</module>
     	<module>Searching</module>
     	<module>tree</module>
-	</modules>
+   		<module>Graph</module>
+  </modules>
 </project>
