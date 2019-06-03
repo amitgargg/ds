@@ -12,7 +12,7 @@ public class InOrderTraversal {
 
 	}
 
-	private static void inOrderTraversalIterative(BinaryTreeNode<Integer> root) {
+	public static void inOrderTraversalIterative(BinaryTreeNode<Integer> root) {
 		System.out.println("InOrder Traversal Iterative:");
 		boolean done = false;
 		BinaryTreeNode<Integer> currNode = root;
