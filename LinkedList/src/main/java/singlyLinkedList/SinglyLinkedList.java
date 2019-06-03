@@ -10,19 +10,19 @@ public class SinglyLinkedList<T> {
 	public SinglyLinkedList() {
 
 	}
-	
+
 	public T deleteFirst() {
-		if(firstNode == null) {
+		if (firstNode == null) {
 			new NoSuchElementException();
 		}
 		T data = firstNode.getData();
 		firstNode = firstNode.nextNode;
-		if(firstNode == null) {       
+		if (firstNode == null) {
 			lastNode = null;
 		}
 		return data;
 	}
-	
+
 	public T deleteLast() {
 		if (lastNode == null) {
 			throw new NoSuchElementException();
@@ -34,7 +34,7 @@ public class SinglyLinkedList<T> {
 			tempNode = secondLastNode.nextNode;
 		}
 		T data = lastNode.data;
-		if(secondLastNode == null) {
+		if (secondLastNode == null) {
 			firstNode = null;
 		} else {
 			secondLastNode.nextNode = null;
@@ -113,6 +113,16 @@ public class SinglyLinkedList<T> {
 		}
 	}
 	
+	public void insertLast(Node<T> newNode) {
+		if (firstNode == null) {
+			firstNode = newNode;
+			lastNode = firstNode;
+		} else {
+			lastNode.setNextNode(newNode);
+			lastNode = newNode;
+		}
+	}
+
 	public T getFirst() {
 		if (firstNode == null) {
 			new NoSuchElementException();
@@ -120,7 +130,7 @@ public class SinglyLinkedList<T> {
 		return firstNode.getData();
 	}
 
-	public void printAll() {	
+	public void printAll() {
 		Node<T> tempNode = firstNode;
 		while (tempNode != null) {
 			System.out.print(tempNode.getData() + ",");
@@ -138,7 +148,7 @@ public class SinglyLinkedList<T> {
 		System.out.println(linkedList.deleteAtIndex(1));
 		System.out.println(linkedList);
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuffer data = new StringBuffer();
@@ -150,34 +160,8 @@ public class SinglyLinkedList<T> {
 		return data.toString();
 	}
 
-}
-
-class Node<T> {
-	T data;
-	Node<T> nextNode;
-
-	public Node(T data) {
-		this.data = data;
+	public Node<T> getFirstNode() {
+		return firstNode;
 	}
 
-	public void setData(T data) {
-		this.data = data;
-	}
-
-	public T getData() {
-		return data;
-	}
-
-	public void setNextNode(Node<T> nextNode) {
-		this.nextNode = nextNode;
-	}
-
-	public Node<T> getNextNode() {
-		return nextNode;
-	}
-
-	@Override
-	public String toString() {
-		return data.toString();
-	}
 }
