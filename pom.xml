@@ -33,5 +33,6 @@
     	<module>Searching</module>
     	<module>tree</module>
    		<module>Graph</module>
+    <module>Set</module>
   </modules>
 </project>
